@@ -46,29 +46,29 @@ export function loaderModel(app) {
         app.modelGroup.add(object.scene);
       }
     },
-    {
-      type: 'glb',
-      url: 'model/water.glb',
-      onLoad: (object) => {
-        const water = object.scene.children[0];
-        water.material.color = new THREE.Color('#006cb9');
-        app.modelGroup.add(object.scene);
-      }
-    },
-    {
-      type: 'glb',
-      url: 'model/primary.glb',
-      onLoad: (object) => {
-        app.modelGroup.add(object.scene);
-      }
-    },
-    {
-      type: 'glb',
-      url: 'model/secondary.glb',
-      onLoad: (object) => {
-        app.modelGroup.add(object.scene);
-      }
-    },
+    // {
+    //   type: 'glb',
+    //   url: 'model/water.glb',
+    //   onLoad: (object) => {
+    //     const water = object.scene.children[0];
+    //     water.material.color = new THREE.Color('#006cb9');
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
+    // {
+    //   type: 'glb',
+    //   url: 'model/primary.glb',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
+    // {
+    //   type: 'glb',
+    //   url: 'model/secondary.glb',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
     {
       type: 'glb',
       url: 'model/trunk.glb',
@@ -76,21 +76,21 @@ export function loaderModel(app) {
         app.modelGroup.add(object.scene);
       }
     },
-    {
-      type: 'glb',
-      url: 'model/ctf2.glb',
-      onLoad: (object) => {
-        app.modelGroup.add(object.scene);
-      }
-    },
-    {
-      type: 'glb',
-      url: 'model/国际金融中心2.glb',
-      // url: 'model/simple_taipei_101.glb',
-      onLoad: (object) => {
-        app.modelGroup.add(object.scene);
-      }
-    },
+    // {
+    //   type: 'glb',
+    //   url: 'model/ctf2.glb',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
+    // {
+    //   type: 'glb',
+    //   url: 'model/国际金融中心2.glb',
+    //   // url: 'model/simple_taipei_101.glb',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
     // {
     //   type: 'glb',
     //   url: 'model/广州塔2.glb',
