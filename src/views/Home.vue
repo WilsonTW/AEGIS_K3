@@ -36,7 +36,6 @@
   import { addPoints } from '@/three/points';
   import { bulidingShader, rippleShader, ringShader } from '@/three/shader';
   import { TWEEN } from 'three/examples/jsm/libs/tween.module.min.js';
-  // import mqtt from '@/components/mqtt';
 
   let app, camera, scene, renderer, controls, clock, pointScene;
 
@@ -50,7 +49,6 @@
       bigTop,
       tooltip,
       bigControl
-      // mqtt
     },
     data() {
       return {
