@@ -1,0 +1,11 @@
+Model Information:
+* title:	Taipei 101
+* source:	https://sketchfab.com/3d-models/taipei-101-3ad8ae3d456f425a9602166f35bf0d6e
+* author:	NanoRay (https://sketchfab.com/NanoRay)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Taipei 101" (https://sketchfab.com/3d-models/taipei-101-3ad8ae3d456f425a9602166f35bf0d6e) by NanoRay (https://sketchfab.com/NanoRay) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
