@@ -54,12 +54,13 @@ import countTo from 'vue-count-to';
   const mqttClient = mqtt.connect(mqttUrl, options);
 
   mqttClient.on('connect', () => {
-    console.log('MQTT Connected')
+    console.log('MQTT Connected');
+    store.dispatch('initialize', mqttClient);
   })
 
   mqttClient.subscribe('/AEGIS/K3/1/report', (err) => {
     if (!err) {
-      console.log('Subscribed to mqttTest');
+      console.log('Subscribed to /AEGIS/K3/1/report');
     } else {
       console.error('Failed to subscribe:', err);
     }
@@ -68,12 +69,14 @@ import countTo from 'vue-count-to';
   mqttClient.on('message', (topic, message) => {
     // console.log(JSON.parse(message));
     store.dispatch('receiveMqttMessage', JSON.parse(message));
+    store.dispatch('publishMqttMessage', { topic: '/AEGIS/K3/1/pub', message: '1' });
   })
 
   mqttClient.on('close', () => {
     console.log("closed");
   })
 
+  // store.dispatch('setMqttClient', mqttClient);
   // Vue.prototype.$mqtt = mqttClient; 
   
   // this.$mqtt.on('connect', () => {
