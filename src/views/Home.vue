@@ -17,6 +17,7 @@
   import loader from '@/components/loader';
   import ZThree from '@/three/ZThree';
   import * as THREE from 'three';
+  import store from '../store';
   import {
     loaderModel,
     // createTourismText,
@@ -144,6 +145,7 @@
 
           case '高耗能區':
             createRipples(app);
+            store.dispatch('publishMqttMessage', { topic: '/AEGIS/K3/1/pub', message: '0' });
             break;
 
           case '虛擬電廠':

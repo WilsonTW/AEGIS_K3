@@ -41,7 +41,7 @@ export default new Vuex.Store({
     publishMqttMessage({ state }, { topic, message }) {
       if (state.mqttClient && state.mqttClient.connected) {
         state.mqttClient.publish(topic, message);
-        console.log(topic+message);
+        // console.log(topic+message);
       } else {
         console.error('MQTT Client not connected');
       }
