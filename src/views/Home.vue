@@ -19,9 +19,9 @@
   import * as THREE from 'three';
   import {
     loaderModel,
-    createTourismText,
+    // createTourismText,
     destroyControlGroup,
-    createHotMap,
+    // createHotMap,
     createRipples,
     createRings
   } from '@/three/loaderModel';
@@ -32,7 +32,7 @@
   import bigRight from '@/components/right';
   import bigTop from '@/components/top';
   import bigControl from '@/components/bigControl';
-  import tooltip from '@/components/tooltip';
+  // import tooltip from '@/components/tooltip';
   import { addPoints } from '@/three/points';
   import { bulidingShader, rippleShader, ringShader } from '@/three/shader';
   import { TWEEN } from 'three/examples/jsm/libs/tween.module.min.js';
@@ -47,7 +47,7 @@
       bigLeft,
       bigRight,
       bigTop,
-      tooltip,
+      // tooltip,
       bigControl
     },
     data() {

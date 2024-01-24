@@ -1,10 +1,10 @@
 module.exports = {
   lintOnSave: false,
-  devServer: {
-    hot: false,
-    liveReload: false,
-    inline: false
-  },
+  // devServer: {
+  //   hot: false,
+  //   liveReload: false,
+  //   inline: false
+  // },
   // assetsDir: 'assets',
   // productionSourceMap: false,
   // configureWebpack: {

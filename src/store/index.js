@@ -1,26 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// store/index.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+// import mqttModule from './modules/mqtt';
+
+Vue.use(Vuex);
 
 // export default new Vuex.Store({
-//   state: {
-//   },
-//   mutations: {
-//   },
-//   actions: {
-//   },
 //   modules: {
+//     mqtt: mqttModule
 //   }
-// })
-
-// store.js
-// import Vue from 'vue';
-// import Vuex from 'vuex';
-
-// Vue.use(Vuex);
+// });
 
 export default new Vuex.Store({
   state: {
-    mqttMessage: ''
+    mqttMessage: {},
+  },
+  getters: {
+    getMqttMsg: (state) => {
+      return state.mqttMessage;
+    }
   },
   mutations: {
     setMqttMessage(state, message) {
@@ -29,6 +27,7 @@ export default new Vuex.Store({
   },
   actions: {
     receiveMqttMessage({ commit }, message) {
+      // console.log(message);
       commit('setMqttMessage', message);
     }
   }

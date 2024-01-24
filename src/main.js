@@ -9,9 +9,94 @@ import bus from './bus';
 import dataV from '@jiaminghi/data-view';
 import echarts from 'echarts';
 import './assets/animate.css';
+import mqtt from 'mqtt';
 import countTo from 'vue-count-to';
+
 // import VueLazyload from 'vue-lazyload';
 // import { initializeApp } from "firebase/app";
+
+  // MQTT 服務器配置
+  // const options = {
+  //   connectTimeout: 4000,
+  //   // 認證信息
+  //   clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+  //   // clientId: 'mqttjs_123123' ,
+  //   username: 'wilson', // 替換為你的用戶名
+  //   password: 'wilsonpw', // 替換為你的密碼
+  // };
+
+  // // 連接到 MQTT 服務器
+  // const mqttClient = mqtt.connect('ws://3.129.206.52:8083/mqtt', options);
+
+  // mqttClient.on('connect', () => {
+  //   console.log('Connected to MQTT Broker');
+
+  // });
+
+  // store.dispatch('mqtt/setMqttClient', mqttClient);
+  // store.dispatch('mqtt/subscribeToTopic', '/BOFI/PCS/1/report');
+
+  // mqttClient.on('message', (topic, message) => {
+  //   // 处理接收到的消息
+  //   console.log(`Received message from ${topic}: ${message.toString()}`);
+  // });
+
+  // MQTT 服務器配置
+  const mqttUrl = 'ws://3.129.206.52:8083/mqtt';
+  const options = {
+    connectTimeout: 4000,
+    // 認證信息
+    clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
+    // clientId: 'mqttjs_123123' ,
+    username: 'wilson', // 替換為你的用戶名
+    password: 'wilsonpw', // 替換為你的密碼
+  };
+  const mqttClient = mqtt.connect(mqttUrl, options);
+
+  mqttClient.on('connect', () => {
+    console.log('MQTT Connected')
+  })
+
+  mqttClient.subscribe('/AEGIS/K3/1/report', (err) => {
+    if (!err) {
+      console.log('Subscribed to mqttTest');
+    } else {
+      console.error('Failed to subscribe:', err);
+    }
+  });
+
+  mqttClient.on('message', (topic, message) => {
+    // console.log(JSON.parse(message));
+    store.dispatch('receiveMqttMessage', JSON.parse(message));
+  })
+
+  mqttClient.on('close', () => {
+    console.log("closed");
+  })
+
+  // Vue.prototype.$mqtt = mqttClient; 
+  
+  // this.$mqtt.on('connect', () => {
+  //   console.log('Connected to MQTT Broker');
+  //   // 訂閱特定主題
+  //   this.$mqtt.subscribe('your/topic');
+  // });
+
+  // this.$mqtt.on('message', (topic, message) => {
+  //   // 處理接收到的消息
+  //   console.log(`Received message: ${message.toString()}`);
+  //   this.message = message.toString();
+  // });
+
+  // this.$mqtt.on('error', (error) => {
+  //   console.error('Connection error:', error);
+  // });
+
+// 创建 MQTT 客户端
+// const mqttClient = mqtt.connect('wss://3.129.206.52:1883');
+
+// 添加 MQTT 客户端到 Vue 原型，这样可以在任何组件中通过 this.$mqtt 访问
+// Vue.prototype.$mqtt = mqttClient;
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBOohvvBQGrQuriOVXf8HFEn8Y46rQrJd0",
