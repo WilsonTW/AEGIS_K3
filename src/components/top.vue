@@ -16,9 +16,9 @@
       ]),
       numList() {
         return [
-          { title: '總用電量', value: this.getMqttMsg.consumption, num: -8.6 },
-          { title: '總發電量', value: this.getMqttMsg.generation, num: 10.3 },
-          { title: '再生能源', value: this.getMqttMsg.renewable, num: 7.69 }
+          { title: '市電', value: this.getMqttMsg.consumption, num: 0.0 },
+          { title: '總用電', value: this.getMqttMsg.generation, num: 0.0 },
+          { title: 'PV發電', value: this.getMqttMsg.renewable, num: 0.0 }
         ]
       },
     },

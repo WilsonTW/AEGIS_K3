@@ -18,34 +18,34 @@ export function loaderModel(app) {
   app.modelGroup.add(app.controlgroup);
   createPlane(app, 500, 500, [0, 0, -3], geziMaterial);
   const urls = [
-    {
-      type: 'glb',
-      url: 'model/building.glb',
-      onLoad: (object) => {
-        const building = object.scene.children[0].children[0];
-        const roof = object.scene.children[0].children[1];
-        building.material = building0Material;
+    // {
+    //   type: 'glb',
+    //   url: 'model/building.glb',
+    //   onLoad: (object) => {
+    //     const building = object.scene.children[0].children[0];
+    //     const roof = object.scene.children[0].children[1];
+    //     building.material = building0Material;
 
-        const parameters = {
-          type: '貼圖'
-        };
-        const types = ['貼圖', 'shader'];
-        app.gui
-          .add(parameters, 'type')
-          .options(types)
-          .name('主題切換')
-          .onChange(() => {
-            if (parameters.type == '貼圖') {
-              building.material = building0Material;
-              roof.material.color = new THREE.Color('#555555');
-            } else if (parameters.type == 'shader') {
-              building.material = building1Material;
-              roof.material.color = new THREE.Color('#086FF5');
-            }
-          });
-        app.modelGroup.add(object.scene);
-      }
-    },
+    //     const parameters = {
+    //       type: '貼圖'
+    //     };
+    //     const types = ['貼圖', 'shader'];
+    //     app.gui
+    //       .add(parameters, 'type')
+    //       .options(types)
+    //       .name('主題切換')
+    //       .onChange(() => {
+    //         if (parameters.type == '貼圖') {
+    //           building.material = building0Material;
+    //           roof.material.color = new THREE.Color('#555555');
+    //         } else if (parameters.type == 'shader') {
+    //           building.material = building1Material;
+    //           roof.material.color = new THREE.Color('#086FF5');
+    //         }
+    //       });
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
     // {
     //   type: 'glb',
     //   url: 'model/water.glb',
@@ -76,13 +76,13 @@ export function loaderModel(app) {
         app.modelGroup.add(object.scene);
       }
     },
-    // {
-    //   type: 'glb',
-    //   url: 'model/ctf2.glb',
-    //   onLoad: (object) => {
-    //     app.modelGroup.add(object.scene);
-    //   }
-    // },
+    {
+      type: 'glb',
+      url: 'model/ctf2.glb',
+      onLoad: (object) => {
+        app.modelGroup.add(object.scene);
+      }
+    },
     // {
     //   type: 'glb',
     //   url: 'model/国际金融中心2.glb',
@@ -256,7 +256,7 @@ export function createRipples(app) {
     done: () => {
       app.ripple.children.forEach((obj) => {
         const html = `
-        <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
+        <div class="text-3d animated fadeIn" id="${obj.name}">K館</div>`;
         // <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
         app.instance.add({
           parent: app.controlgroup,

@@ -15,7 +15,7 @@
     <big-card title="抑低用電" class="left animated bounceInUp card5-animate">
       <chart :option="option11"></chart>
     </big-card>
-    <big-card title="核能" class="left animated bounceInUp card6-animate">
+    <big-card title="虛擬電廠" class="left animated bounceInUp card6-animate">
       <chart :option="option6"></chart>
     </big-card>
   </div>
