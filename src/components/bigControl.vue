@@ -26,10 +26,10 @@
           //   name: '熱力分佈'
           // },
           {
-            name: '高耗能區'
+            name: 'K館範圍'
           },
           {
-            name: '虛擬電廠'
+            name: '燈區亮點'
           }
         ],
         activeVar: null

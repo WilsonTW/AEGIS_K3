@@ -143,12 +143,12 @@
           //   createHotMap(app);
           //   break;
 
-          case '高耗能區':
+          case 'K館範圍':
             createRipples(app);
             store.dispatch('publishMqttMessage', { topic: '/AEGIS/K3/1/pub', message: '0' });
             break;
 
-          case '虛擬電廠':
+          case '燈區亮點':
             createRings(app);
             break;
 

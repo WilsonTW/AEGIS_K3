@@ -113,3 +113,13 @@ out skel qt;
 ```
         app.gui.add(buildingMaterial, 'wireframe').name('顯示線框');
 ```
+
+### MQTT Publish範例
+
+```
+{ "consumption" : "0",
+  "generation" : "124",
+  "renewable" : "211"
+}
+```
+
