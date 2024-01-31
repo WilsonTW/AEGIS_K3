@@ -62,7 +62,7 @@ export default class ZThree {
 
   // 初始化helper
   initHelper() {
-    this.scene.add(new THREE.AxesHelper(1000));
+    this.scene.add(new THREE.AxesHelper(250));
   }
 
   // 初始化控制器
@@ -242,9 +242,9 @@ export default class ZThree {
     option.easing = option.easing || TWEEN.Easing.Linear.None;
     TWEEN.removeAll();
     const curPosition = this.camera.position;
-    console.log(curPosition);
-    console.log(option.controls);
-    console.log(option.duration);
+    // console.log(curPosition);
+    // console.log(option.controls);
+    // console.log(option.duration);
     const controlsTar = this.controls.target;
     const tween = new TWEEN.Tween({
       x1: curPosition.x, // 相机当前位置x

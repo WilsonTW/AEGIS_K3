@@ -73,6 +73,7 @@ export function loaderModel(app) {
       type: 'glb',
       url: 'model/K_Map3.glb',
       onLoad: (object) => {
+        console.log(object.scene.children[0].position);
         const k31 = object.scene.children[0];
         const k32 = object.scene.children[1];
         const k33 = object.scene.children[2];
@@ -167,7 +168,7 @@ export function loaderModel(app) {
       type: 'glb',
       url: 'model/ring1.glb',
       onLoad: (object) => {
-        console.log(object);
+        // console.log(object);
         app.ring = object.scene;
       }
     }
@@ -209,11 +210,8 @@ export function loaderModel(app) {
       app.scene.add(app.modelGroup);
       setTimeout(() => {
         app.flyTo({
-          position: [0.0, 0.0, 0.0],
-          controls: [0.0, 0.0, 0.0],
-          // position: [-0.5, 0.0, 37.73],
-          // position: [8.7, 5.23, 58.73],
-          // controls: [-5.6, 0.8, 30.81],
+          position: [27.10, -7.2, 41.6],
+          controls: [27.00, -0.2, 39.50],
           duration: 1500
         });
       }, 200);
@@ -290,8 +288,10 @@ export function createHotMap(app) {
  */
 export function createHome(app) {
   app.flyTo({
-    position: [-0.5, 0.0, 37.73],
-    controls: [-5.6, 0.8, 30.81],
+    // position: [27.50, -6.88, 43.00],
+    // controls: [27.00, -0.2, 40.00],
+    position: [27.10, -7.2, 41.6],
+    controls: [27.00, -0.2, 39.50],
     // done: () => {
     //   const heatMapTexture = new THREE.Texture(heatMap(100, 100));
     //   const heatMapMaterial = new THREE.MeshBasicMaterial({ map: heatMapTexture });
@@ -308,8 +308,8 @@ export function createHome(app) {
  */
 export function createRipples(app) {
   app.flyTo({
-    position: [16.98, 20.1, 46.39],
-    controls: [-5.6, 0.8, 30.81],
+    position: [39.00, 6.88, 54.00],
+    controls: [25.00, 0.08, 40.00],
     // controls: [4.56, -4.65, 24.98],
     done: () => {
       app.ripple.children.forEach((obj) => {
@@ -326,7 +326,7 @@ export function createRipples(app) {
         });
 
         const array = obj.geometry.attributes.position.array;
-        const ripple = createRipple([...array], 200);
+        const ripple = createRipple([...array], 90);
         ripple.position.copy(obj.position);
         app.controlgroup.add(ripple);
       });
@@ -340,9 +340,8 @@ export function createRipples(app) {
  */
 export function createRings(app) {
   app.flyTo({
-    position: [-6.49, 3.08, 45.36],
-    // controls: [-5.6, 0.8, 30.81],
-    controls: [4.56, 0.65, 20.98],
+    position: [36.00, 3.98, 54.00],
+    controls: [25.00, 1.08, 38.00],
     done: () => {
       const ringGeometry = new THREE.RingBufferGeometry(0.1, 150, 20, 5, 0, Math.PI * 2);
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
@@ -358,8 +357,8 @@ export function createRings(app) {
           cssObject: CSS3DSprite,
           name: obj.name,
           element: html,
-          position: [obj.position.x, obj.position.y + 400, obj.position.z],
-          scale: [0.03, 0.03, 0.03]
+          position: [obj.position.x, obj.position.y + 340, obj.position.z],
+          scale: [0.025, 0.025, 0.025]
         });
         const octahedron_clone = octahedron.clone();
         octahedron_clone.position.set(obj.position.x, obj.position.y + 150, obj.position.z);
