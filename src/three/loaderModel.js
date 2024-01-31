@@ -1,4 +1,6 @@
 import * as THREE from 'three';
+import { buildingMaterial } from './material';
+import { createBuilding } from './createBuilding';
 import {
   geziMaterial,
   building1Material,
@@ -17,35 +19,47 @@ export function loaderModel(app) {
   app.controlgroup = new THREE.Group();
   app.modelGroup.add(app.controlgroup);
   createPlane(app, 500, 500, [0, 0, -3], geziMaterial);
+  const center = [113.293398, 23.147409];
+  // const center = [120.2900994, 22.9213803];
   const urls = [
-    {
-      type: 'glb',
-      url: 'model/building.glb',
-      onLoad: (object) => {
-        const building = object.scene.children[0].children[0];
-        const roof = object.scene.children[0].children[1];
-        building.material = building0Material;
+    // {
+    //   type: 'glb',
+    //   url: 'model/building.glb',
+    //   onLoad: (object) => {
+    //     const building = object.scene.children[0].children[0];
+    //     const roof = object.scene.children[0].children[1];
+    //     building.material = building0Material;
 
-        // const parameters = {
-        //   type: '貼圖'
-        // };
-        // const types = ['貼圖', 'shader'];
-        // app.gui
-        //   .add(parameters, 'type')
-        //   .options(types)
-        //   .name('主題切換')
-        //   .onChange(() => {
-        //     if (parameters.type == '貼圖') {
-        //       building.material = building0Material;
-        //       roof.material.color = new THREE.Color('#555555');
-        //     } else if (parameters.type == 'shader') {
-        //       building.material = building1Material;
-        //       roof.material.color = new THREE.Color('#086FF5');
-        //     }
-        //   });
-        app.modelGroup.add(object.scene);
-      }
-    },
+    //     // const parameters = {
+    //     //   type: '貼圖'
+    //     // };
+    //     // const types = ['貼圖', 'shader'];
+    //     // app.gui
+    //     //   .add(parameters, 'type')
+    //     //   .options(types)
+    //     //   .name('主題切換')
+    //     //   .onChange(() => {
+    //     //     if (parameters.type == '貼圖') {
+    //     //       building.material = building0Material;
+    //     //       roof.material.color = new THREE.Color('#555555');
+    //     //     } else if (parameters.type == 'shader') {
+    //     //       building.material = building1Material;
+    //     //       roof.material.color = new THREE.Color('#086FF5');
+    //     //     }
+    //     //   });
+    // app.modelGroup.add(object.scene);
+    // }
+    // },
+    // {
+    //     type: 'file',
+    //     url: 'model/building.json',
+    //     onLoad: (json) => {
+    //         console.log(json);
+    //         const buildingMesh = createBuilding(json, center, buildingMaterial);
+    //         // app.mapModel.add(buildingMesh);
+    //         app.modelGroup.add(buildingMesh);
+    //     }
+    // },
     // {
     //   type: 'glb',
     //   url: 'model/water.glb',
@@ -55,6 +69,21 @@ export function loaderModel(app) {
     //     app.modelGroup.add(object.scene);
     //   }
     // },
+    {
+      type: 'glb',
+      url: 'model/K_Map3.glb',
+      onLoad: (object) => {
+        const k31 = object.scene.children[0];
+        const k32 = object.scene.children[1];
+        const k33 = object.scene.children[2];
+        // k3.material = building0Material;
+        // k32.material.color = new THREE.Color('#006cb9');
+        // k31.material.color = new THREE.Color('#bf950b');
+        app.modelGroup.add(k31);
+        app.modelGroup.add(k32);
+        app.modelGroup.add(k33);
+      }
+    },
     // {
     //   type: 'glb',
     //   url: 'model/primary.glb',
@@ -71,11 +100,18 @@ export function loaderModel(app) {
     // },
     {
       type: 'glb',
-      url: 'model/trunk.glb',
+      url: 'model/trunk1.glb',
       onLoad: (object) => {
         app.modelGroup.add(object.scene);
       }
     },
+    // {
+    //   type: 'gltf',
+    //   url: 'model/box.gltf',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
     // {
     //   type: 'glb',
     //   url: 'model/ctf2.glb',
@@ -98,20 +134,20 @@ export function loaderModel(app) {
     //     app.modelGroup.add(object.scene);
     //   }
     // },
-    {
-      type: 'glb',
-      url: 'model/taipei_101_k3.glb',
-      onLoad: (object) => {
-        app.modelGroup.add(object.scene);
-      }
-    },
-    {
-      type: 'glb',
-      url: 'model/tourism.glb',
-      onLoad: (object) => {
-        app.tourismModel = object.scene;
-      }
-    },
+    // {
+    //   type: 'glb',
+    //   url: 'model/taipei_101_k3.glb',
+    //   onLoad: (object) => {
+    //     app.modelGroup.add(object.scene);
+    //   }
+    // },
+    // {
+    //   type: 'glb',
+    //   url: 'model/tourism.glb',
+    //   onLoad: (object) => {
+    //     app.tourismModel = object.scene;
+    //   }
+    // },
     // {
     //   type: 'glb',
     //   url: 'model/hotMap.glb',
@@ -121,7 +157,7 @@ export function loaderModel(app) {
     // },
     {
       type: 'glb',
-      url: 'model/ripple_k3.glb',
+      url: 'model/ripple_green.glb',
       // url: 'model/taipei_101.glb',
       onLoad: (object) => {
         app.ripple = object.scene;
@@ -129,7 +165,7 @@ export function loaderModel(app) {
     },
     {
       type: 'glb',
-      url: 'model/ring.glb',
+      url: 'model/ring1.glb',
       onLoad: (object) => {
         console.log(object);
         app.ring = object.scene;
@@ -173,8 +209,11 @@ export function loaderModel(app) {
       app.scene.add(app.modelGroup);
       setTimeout(() => {
         app.flyTo({
-          position: [8.7, 5.23, 58.73],
-          controls: [-7.6, 0.77, 27.81],
+          position: [0.0, 0.0, 0.0],
+          controls: [0.0, 0.0, 0.0],
+          // position: [-0.5, 0.0, 37.73],
+          // position: [8.7, 5.23, 58.73],
+          // controls: [-5.6, 0.8, 30.81],
           duration: 1500
         });
       }, 200);
@@ -246,13 +285,32 @@ export function createHotMap(app) {
 }
 
 /**
+ * 创建热力图
+ * @param {*} app
+ */
+export function createHome(app) {
+  app.flyTo({
+    position: [-0.5, 0.0, 37.73],
+    controls: [-5.6, 0.8, 30.81],
+    // done: () => {
+    //   const heatMapTexture = new THREE.Texture(heatMap(100, 100));
+    //   const heatMapMaterial = new THREE.MeshBasicMaterial({ map: heatMapTexture });
+    //   heatMapMaterial.map.needsUpdate = true;
+    //   app.hotMap.material = heatMapMaterial;
+    //   app.controlgroup.add(app.hotMap);
+    // }
+  });
+}
+
+/**
  * 创建高亮选中栅栏
  * @param {*} app
  */
 export function createRipples(app) {
   app.flyTo({
-    position: [16.98, 20.1, 76.39],
-    controls: [4.56, -4.65, 24.98],
+    position: [16.98, 20.1, 46.39],
+    controls: [-5.6, 0.8, 30.81],
+    // controls: [4.56, -4.65, 24.98],
     done: () => {
       app.ripple.children.forEach((obj) => {
         const html = `
@@ -268,7 +326,7 @@ export function createRipples(app) {
         });
 
         const array = obj.geometry.attributes.position.array;
-        const ripple = createRipple([...array], 400);
+        const ripple = createRipple([...array], 200);
         ripple.position.copy(obj.position);
         app.controlgroup.add(ripple);
       });
@@ -282,16 +340,17 @@ export function createRipples(app) {
  */
 export function createRings(app) {
   app.flyTo({
-    position: [-16.49, 9.08, 65.36],
-    controls: [4.56, -4.65, 24.98],
+    position: [-6.49, 3.08, 45.36],
+    // controls: [-5.6, 0.8, 30.81],
+    controls: [4.56, 0.65, 20.98],
     done: () => {
-      const ringGeometry = new THREE.RingBufferGeometry(0.1, 400, 20, 5, 0, Math.PI * 2);
+      const ringGeometry = new THREE.RingBufferGeometry(0.1, 150, 20, 5, 0, Math.PI * 2);
       const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-      const octahedronGeometry = new THREE.OctahedronGeometry(50, 0);
+      const octahedronGeometry = new THREE.OctahedronGeometry(30, 0);
       const octahedron = new THREE.Mesh(octahedronGeometry, coneMaterial);
       app.ring.children.forEach((obj) => {
         const html = `
-        <div class="text-3d animated fadeIn" id="${obj.name}">燈區亮點</div>`;
+        <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
         // <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
         // const html = ``;
         app.instance.add({
@@ -299,15 +358,15 @@ export function createRings(app) {
           cssObject: CSS3DSprite,
           name: obj.name,
           element: html,
-          position: [obj.position.x, obj.position.y + 500, obj.position.z],
+          position: [obj.position.x, obj.position.y + 400, obj.position.z],
           scale: [0.03, 0.03, 0.03]
         });
         const octahedron_clone = octahedron.clone();
-        octahedron_clone.position.set(obj.position.x, obj.position.y + 200, obj.position.z);
+        octahedron_clone.position.set(obj.position.x, obj.position.y + 150, obj.position.z);
         app.controlgroup.add(octahedron_clone);
         const ring_clone = ring.clone();
         ring_clone.rotateX(-Math.PI / 2);
-        ring_clone.position.set(obj.position.x, obj.position.y + 100, obj.position.z);
+        ring_clone.position.set(obj.position.x, obj.position.y + 10, obj.position.z);
         app.controlgroup.add(ring_clone);
       });
     }

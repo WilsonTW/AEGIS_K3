@@ -10,13 +10,13 @@ export function createRipple(array, height, isClose = true) {
   let uvMax = 1;
   for (let i = 0, j = 0, t = 0; i < array.length - 3; i = i + 3) {
     // 以一个顶点计算出当前栅栏的那一面
-    let x1 = array[i];
-    let y1 = array[i + 1];
-    let z1 = array[i + 2];
+    let x1 = array[i]* 0.5;
+    let y1 = array[i + 1]* 0.5;
+    let z1 = array[i + 2]* 0.34;
 
-    let x2 = array[i + 3];
-    let y2 = array[i + 4];
-    let z2 = array[i + 5];
+    let x2 = array[i + 3]* 0.5;
+    let y2 = array[i + 4]* 0.5;
+    let z2 = array[i + 5]* 0.34;
 
     positions[j++] = x1;
     positions[j++] = y1;

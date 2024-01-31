@@ -62,7 +62,7 @@ export default class ZThree {
 
   // 初始化helper
   initHelper() {
-    this.scene.add(new THREE.AxesHelper(100));
+    this.scene.add(new THREE.AxesHelper(1000));
   }
 
   // 初始化控制器
@@ -179,9 +179,16 @@ export default class ZThree {
         }
         this.fbxLoader.load(option.url, option.onLoad, option.onProgress, option.onError);
         break;
-
+      
+      case 'file':
+        if(!this.fileLoader){
+          this.fileloader = new THREE.FileLoader().setResponseType('json');
+        }
+        this.fileloader.load(option.url, option.onLoad, option.onProgress, option.onError);
+        break;
+        
       default:
-        console.error('当前只支持obj, gltf, glb, fbx格式');
+        console.error('当前只支持obj, gltf, glb, fbx, file 格式');
         break;
     }
   }
@@ -235,6 +242,9 @@ export default class ZThree {
     option.easing = option.easing || TWEEN.Easing.Linear.None;
     TWEEN.removeAll();
     const curPosition = this.camera.position;
+    console.log(curPosition);
+    console.log(option.controls);
+    console.log(option.duration);
     const controlsTar = this.controls.target;
     const tween = new TWEEN.Tween({
       x1: curPosition.x, // 相机当前位置x

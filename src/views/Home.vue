@@ -23,6 +23,7 @@
     // createTourismText,
     destroyControlGroup,
     // createHotMap,
+    createHome,
     createRipples,
     createRings
   } from '@/three/loaderModel';
@@ -58,6 +59,8 @@
         isShowChart: false,
         firstRenderTime: null,
         cameraPos: [-19.65, 398, 341],
+        // cameraPos: [-19.65, 98, 0],
+        // cameraPos: [-260.65, -7200, 341],
         controlsTarget: [-7.6, 0.77, 27.81]
       };
     },
@@ -122,7 +125,7 @@
             }
 
             if (ringShader) {
-              ringShader.uniforms.time.value += 0.005;
+              ringShader.uniforms.time.value += 0.002;
             }
 
             controls.update(clock.getDelta());
@@ -139,11 +142,12 @@
           //   createTourismText(app);
           //   break;
 
-          // case '熱力分佈':
-          //   createHotMap(app);
-          //   break;
+          case 'K館':
+            // createHotMap(app);
+            createHome(app);
+            break;
 
-          case 'K館範圍':
+          case '示範場域':
             createRipples(app);
             store.dispatch('publishMqttMessage', { topic: '/AEGIS/K3/1/pub', message: '0' });
             break;

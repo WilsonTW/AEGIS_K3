@@ -3,19 +3,19 @@
     <big-card title="用電紀錄" class="left animated bounceInUp">
       <chart :option="option1"></chart>
     </big-card>
-    <big-card title="分區用電量" class="left animated bounceInUp card2-animate">
+    <big-card title="區域用電" class="left animated bounceInUp card2-animate">
       <chart :option="option2"></chart>
     </big-card>
     <big-card title="再生能源比例" class="left animated bounceInUp card3-animate">
       <chart :option="option31"></chart>
     </big-card>
-    <big-card title="再生能源(YoY)" class="left animated bounceInUp card4-animate">
+    <big-card title="低碳能源使用比例" class="left animated bounceInUp card4-animate">
       <chart :option="option41"></chart>
     </big-card>
     <big-card title="抑低用電" class="left animated bounceInUp card5-animate">
       <chart :option="option11"></chart>
     </big-card>
-    <big-card title="虛擬電廠" class="left animated bounceInUp card6-animate">
+    <big-card title="智慧城市" class="left animated bounceInUp card6-animate">
       <chart :option="option6"></chart>
     </big-card>
   </div>

@@ -22,7 +22,7 @@ export default {
     textStyle: {
       color: '#1bb4f6'
     },
-    data:['水力', '風能', '太陽能']
+    data:['儲能', '氫能', '太陽能']
     // data: ['已采纳', '已发布', '浏览量']
   },
   xAxis: [
@@ -53,7 +53,7 @@ export default {
   yAxis: [
     {
       type: 'value',
-      name: '風能',
+      name: '氫能',
       min: 0,
       max: 1000,
       axisLabel: {
@@ -106,7 +106,7 @@ export default {
   ],
   series: [
     {
-      name: '水力',
+      name: '儲能',
       type: 'line',
       stack: '总量',
       symbol: 'circle',
@@ -143,7 +143,7 @@ export default {
       data: [120, 132, 101, 134, 90, 230, 210, 182, 191, 234, 290, 330]
     },
     {
-      name: '風能',
+      name: '氫能',
       type: 'line',
       stack: '总量',
       symbol: 'circle',

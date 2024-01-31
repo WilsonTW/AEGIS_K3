@@ -56,7 +56,7 @@ export default {
         show: false
       },
       boundaryGap: false,
-      data: ['太陽能', '風能', '氫能', '生質能', '地熱', '水力']
+      data: ['1月', '2月', '3月', '4月', '5月', '6月']
     }
   ],
   yAxis: [

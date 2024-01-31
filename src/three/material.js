@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { geziTexture, pointTexture, buildingColorTexture } from './texture';
 import { bulidingShader, rippleShader, ringShader } from '@/three/shader';
 
+export const buildingMaterial = new THREE.MeshStandardMaterial();
+
 // 点材质
 export const pointMaterial = new THREE.PointsMaterial({
   size: 2,

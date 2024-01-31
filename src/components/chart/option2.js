@@ -15,7 +15,7 @@ export default {
     top: 10,
     bottom: 0,
     right: 50,
-    left: 100
+    left: 180
   },
   xAxis: [
     {
@@ -33,7 +33,7 @@ export default {
           fontSize: '16'
         }
       },
-      data: ['中正區', '大同區', '中山區', '松山區', '大安區', '士林區']
+      data: ['三井OUTLET', '大台南會展中心', '台南高鐵站', '沙崙車站', '智駕測試實驗室', '資通安全研究院']
     },
     {
       axisTick: 'none',

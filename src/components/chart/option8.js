@@ -5,20 +5,20 @@ var img =
 
 var trafficWay = [
   {
-    name: 'PV',
-    value: 55
-  },
-  {
     name: 'HE',
-    value: 2
+    value: 15
+  },
+  // {
+  //   name: 'WE',
+  //   value: 10
+  // },
+  {
+    name: 'GRID',
+    value: 5
   },
   {
-    name: 'WE',
-    value: 10
-  },
-  {
-    name: 'GEN',
-    value: 23
+    name: 'PV',
+    value: 175
   }
 ];
 
@@ -78,7 +78,7 @@ var seriesOption = [
             }
             percent = ((params.value / total) * 100).toFixed(0);
             if (params.name !== '') {
-              return '數量：' + params.name + '\n' + '\n' + '百分比：' + percent + '%';
+              return '種類：' + params.name + '\n' + '\n' + '百分比：' + percent + '%';
             } else {
               return '';
             }
@@ -120,7 +120,7 @@ export default {
     icon: 'circle',
     orient: 'horizontal',
     // x: 'left',
-    data: ['PV', 'HE', 'WE', 'GEN'],
+    data: ['HE', 'GRID', 'PV'],
     top: 0,
     right: 50,
     align: 'right',
