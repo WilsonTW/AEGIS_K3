@@ -22,34 +22,34 @@ export function loaderModel(app) {
   const center = [113.293398, 23.147409];
   // const center = [120.2900994, 22.9213803];
   const urls = [
-    // {
-    //   type: 'glb',
-    //   url: 'model/building.glb',
-    //   onLoad: (object) => {
-    //     const building = object.scene.children[0].children[0];
-    //     const roof = object.scene.children[0].children[1];
-    //     building.material = building0Material;
+    {
+      type: 'glb',
+      url: 'model/building.glb',
+      onLoad: (object) => {
+        const building = object.scene.children[0].children[0];
+        const roof = object.scene.children[0].children[1];
+        building.material = building0Material;
 
-    //     // const parameters = {
-    //     //   type: '貼圖'
-    //     // };
-    //     // const types = ['貼圖', 'shader'];
-    //     // app.gui
-    //     //   .add(parameters, 'type')
-    //     //   .options(types)
-    //     //   .name('主題切換')
-    //     //   .onChange(() => {
-    //     //     if (parameters.type == '貼圖') {
-    //     //       building.material = building0Material;
-    //     //       roof.material.color = new THREE.Color('#555555');
-    //     //     } else if (parameters.type == 'shader') {
-    //     //       building.material = building1Material;
-    //     //       roof.material.color = new THREE.Color('#086FF5');
-    //     //     }
-    //     //   });
-    // app.modelGroup.add(object.scene);
-    // }
-    // },
+        const parameters = {
+          type: '貼圖'
+        };
+        const types = ['貼圖', 'shader'];
+        app.gui
+          .add(parameters, 'type')
+          .options(types)
+          .name('主題切換')
+          .onChange(() => {
+            if (parameters.type == '貼圖') {
+              building.material = building0Material;
+              roof.material.color = new THREE.Color('#555555');
+            } else if (parameters.type == 'shader') {
+              building.material = building1Material;
+              roof.material.color = new THREE.Color('#086FF5');
+            }
+          });
+      app.modelGroup.add(object.scene);
+      }
+    },
     // {
     //     type: 'file',
     //     url: 'model/building.json',
@@ -71,7 +71,7 @@ export function loaderModel(app) {
     // },
     {
       type: 'glb',
-      url: 'model/K_Map3.glb',
+      url: 'model/K_Map4.glb',
       onLoad: (object) => {
         console.log(object.scene.children[0].position);
         const k31 = object.scene.children[0];
@@ -210,9 +210,31 @@ export function loaderModel(app) {
       app.scene.add(app.modelGroup);
       setTimeout(() => {
         app.flyTo({
-          position: [27.10, -7.2, 41.6],
-          controls: [27.00, -0.2, 39.50],
-          duration: 1500
+          // position: [27.10, -7.2, 41.6],
+          // controls: [27.00, -0.2, 39.50],
+          position: [39.00, 6.88, 54.00],
+          controls: [25.00, 0.08, 40.00],
+          done: () => {
+            app.ripple.children.forEach((obj) => {
+              const html = `
+              <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
+              // <div class="text-3d animated fadeIn" id="${obj.name}">${obj.name}</div>`;
+              app.instance.add({
+                parent: app.controlgroup,
+                cssObject: CSS3DSprite,
+                name: obj.name,
+                element: html,
+                position: [obj.position.x, obj.position.y + 500, obj.position.z],
+                scale: [0.03, 0.03, 0.03]
+              });
+      
+              const array = obj.geometry.attributes.position.array;
+              const ripple = createRipple([...array], 90);
+              ripple.position.copy(obj.position);
+              app.controlgroup.add(ripple);
+            });
+          },
+          duration:1800
         });
       }, 200);
     }

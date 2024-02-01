@@ -2,7 +2,7 @@
   <div class="count-text">
     <div class="title">{{ title }}</div>
     <div class="value">
-      <count-to :startVal="0" :endVal="value" :duration="3000"></count-to>
+      <count-to :startVal="value - 0.1" :endVal="value" :duration="120"></count-to>
       <span :class="['num', num >= 0 ? 'red' : 'green']"
         >{{ num }}%
         <i :class="[num >= 0 ? 'el-icon-caret-top' : 'el-icon-caret-bottom']"></i>
