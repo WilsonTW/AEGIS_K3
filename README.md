@@ -117,9 +117,9 @@ out skel qt;
 ### MQTT Publish範例
 
 ```
-{ "consumption" : "0",
-  "generation" : "124",
-  "renewable" : "211"
+{ "consumption" : "0", //'市電'
+  "generation" : "124", //'總負載'
+  "renewable" : "211" //'低碳能源'
 }
 ```
 
