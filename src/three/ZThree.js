@@ -50,6 +50,7 @@ export default class ZThree {
 
   initLight() {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    // directionalLight.position.set(2694, -4460, 25);
     directionalLight.position.set(-30, 30, -30);
     this.scene.add(directionalLight);
 
@@ -58,6 +59,21 @@ export default class ZThree {
 
     const ambientLight = new THREE.AmbientLight(0x404040);
     this.scene.add(ambientLight);
+
+    // 创建聚光灯
+    const spotLight = new THREE.SpotLight(0xffffbb); // 设置光源颜色为白色
+    // spotLight.position.set(30.16, 0.1, 48.62); // 设置光源位置
+    // spotLight.position.set(29.5, 0.3, 48.6); // 设置光源位置
+    spotLight.position.set(27.56, 5.6, 46.8); // 设置光源位置
+    // spotLight.angle = Math.PI / 8; // 设置光照角度
+    // spotLight.target = new THREE.Vector3(27.07, 0.07, 44.63);
+    spotLight.angle = 0.11; // 设置光照角度
+    spotLight.intensity = 80;
+    spotLight.penumbra = 0.05; // 设置边缘的软化度
+    spotLight.decay = 2; // 设置光照强度的衰减率
+    spotLight.distance = 9; // 设置光照的最大距离
+    spotLight.name = 'kkSpotLight';
+    this.scene.add(spotLight);
   }
 
   // 初始化helper
@@ -265,7 +281,8 @@ export default class ZThree {
         },
         option.duration
       )
-      .easing(TWEEN.Easing.Linear.None); // TWEEN.Easing.Cubic.InOut //匀速
+      // .easing(TWEEN.Easing.Linear.None); // TWEEN.Easing.Cubic.InOut //匀速
+      .easing(TWEEN.Easing.Quadratic.InOut) // 使用Quadratic InOut缓动
     tween.onUpdate(() => {
       this.controls.enabled = false;
       this.camera.position.set(tween._object.x1, tween._object.y1, tween._object.z1);

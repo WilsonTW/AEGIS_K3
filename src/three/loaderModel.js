@@ -71,25 +71,30 @@ export function loaderModel(app) {
     // },
     {
       type: 'glb',
-      url: 'model/K_Map4.glb',
+      url: 'model/MPA_k館_light.glb',
       onLoad: (object) => {
-        console.log(object.scene.children[0].position);
+        console.log(object.scene.children[2].position);
         const k31 = object.scene.children[0];
         const k32 = object.scene.children[1];
         const k33 = object.scene.children[2];
-        // k3.material = building0Material;
-        // k32.material.color = new THREE.Color('#006cb9');
-        // k31.material.color = new THREE.Color('#bf950b');
+       
         app.modelGroup.add(k31);
         app.modelGroup.add(k32);
         app.modelGroup.add(k33);
+        const kkSpotLight = app.scene.getObjectByName('kkSpotLight');
+        kkSpotLight.target = k33;
+        
+        // k3.material = building0Material;
+        // k32.material.color = new THREE.Color('#006cb9');
+        // k31.material.color = new THREE.Color('#bf950b');
+        // app.modelGroup.add(object.scene.children[0]);
       }
     },
     // {
     //   type: 'glb',
     //   url: 'model/primary.glb',
     //   onLoad: (object) => {
-    //     app.modelGroup.add(object.scene);
+    //     app.modelGroup.add(object.scene.children[0]);
     //   }
     // },
     // {
@@ -210,8 +215,6 @@ export function loaderModel(app) {
       app.scene.add(app.modelGroup);
       setTimeout(() => {
         app.flyTo({
-          // position: [27.10, -7.2, 41.6],
-          // controls: [27.00, -0.2, 39.50],
           position: [39.00, 6.88, 54.00],
           controls: [25.00, 0.08, 40.00],
           done: () => {
@@ -310,10 +313,11 @@ export function createHotMap(app) {
  */
 export function createHome(app) {
   app.flyTo({
-    // position: [27.50, -6.88, 43.00],
-    // controls: [27.00, -0.2, 40.00],
-    position: [27.10, -7.2, 41.6],
-    controls: [27.00, -0.2, 39.50],
+    position: [24.268, -7.4, 40.836],
+    controls: [24.24, -0.4, 40.8],
+    duration: 1800
+    // position: [27.10, -7.2, 41.6],
+    // controls: [27.00, -0.2, 39.50],
     // done: () => {
     //   const heatMapTexture = new THREE.Texture(heatMap(100, 100));
     //   const heatMapMaterial = new THREE.MeshBasicMaterial({ map: heatMapTexture });
@@ -331,6 +335,8 @@ export function createHome(app) {
 export function createRipples(app) {
   app.flyTo({
     position: [39.00, 6.88, 54.00],
+    // controls: [25.00, 0.08, 40.00],
+    // controls: [24.24, -0.4, 40.8],
     controls: [25.00, 0.08, 40.00],
     // controls: [4.56, -4.65, 24.98],
     done: () => {
