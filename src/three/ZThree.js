@@ -255,7 +255,8 @@ export default class ZThree {
     option.position = option.position || []; // 相机新的位置
     option.controls = option.controls || []; // 控制器新的中心点位置(围绕此点旋转等)
     option.duration = option.duration || 1000; // 飞行时间
-    option.easing = option.easing || TWEEN.Easing.Linear.None;
+    // option.easing = option.easing || TWEEN.Easing.Linear.None;
+    option.easing = option.easing || TWEEN.Easing.Quadratic.InOut;
     TWEEN.removeAll();
     const curPosition = this.camera.position;
     // console.log(curPosition);

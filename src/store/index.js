@@ -35,7 +35,7 @@ export default new Vuex.Store({
       commit('setMqttClient', client);
     },
     receiveMqttMessage({ commit }, message) {
-      // console.log(message);
+      console.log(message);
       commit('setMqttMessage', message);
     },
     publishMqttMessage({ state }, { topic, message }) {

@@ -313,7 +313,7 @@ export function createHotMap(app) {
  */
 export function createHome(app) {
   app.flyTo({
-    position: [24.268, -7.4, 40.836],
+    position: [24.264, -7.0, 40.832],
     controls: [24.24, -0.4, 40.8],
     duration: 1800
     // position: [27.10, -7.2, 41.6],
