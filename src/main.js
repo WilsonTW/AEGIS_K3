@@ -43,6 +43,7 @@ import countTo from 'vue-count-to';
 
   // MQTT 服務器配置
   const mqttUrl = 'ws://3.129.206.52:8083/mqtt';
+  // const mqttUrl = 'ws://dingyan.duckdns.org:8083/mqtt';
   const options = {
     connectTimeout: 4000,
     // 認證信息
